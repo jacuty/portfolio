@@ -484,17 +484,6 @@ nav {
 .status-badge-check { background: rgba(245,158,11,0.2); color: #fcd34d; }
 .status-badge-ok { background: rgba(16,185,129,0.18); color: #6ee7b7; }
 
-/* ── INLINE HIGHLIGHT (검토 결과 미리보기 밑줄 강조) ── */
-.hl-bad { background: rgba(239,68,68,0.22); color: #fca5a5; border-bottom: 2px solid #ef4444; padding: 1px 3px; border-radius: 3px; }
-.hl-check { background: rgba(245,158,11,0.2); color: #fcd34d; border-bottom: 2px solid #f59e0b; padding: 1px 3px; border-radius: 3px; }
-.hl-ok { background: rgba(16,185,129,0.2); color: #6ee7b7; border-bottom: 2px solid #10b981; padding: 1px 3px; border-radius: 3px; }
-
-/* ── CHECKLIST ── */
-.check-item { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; color: var(--on-dark); }
-.check-dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
-.check-dot-bad { background: #ef4444; }
-.check-dot-check { background: #f59e0b; }
-.check-dot-ok { background: #10b981; }
 
 /* ── DASHBOARD SPOTLIGHT CAROUSEL (실제 dashboard_demo.html 라이브 임베드) ── */
 .spotlight-carousel { position: relative; }
@@ -686,36 +675,6 @@ nav {
 }
 .kpi-chart-wrap { height: 64px; margin-top: 8px; }
 
-/* Inline before/after chart used inside work-sections */
-.metric-chart-block {
-  background: rgba(0,0,0,0.03);
-  border: 1px solid var(--hairline);
-  border-radius: 16px;
-  padding: 20px 20px 12px;
-  margin-bottom: 16px;
-}
-.metric-chart-block-dark {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.metric-chart-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  margin-bottom: 10px; flex-wrap: wrap; gap: 6px;
-}
-.metric-chart-title {
-  font-size: 13px; font-weight: 600;
-  color: var(--ink-muted-80);
-}
-.metric-chart-title-dark { color: var(--body-muted); }
-.metric-chart-delta {
-  font-family: var(--font-mono);
-  font-size: 15px; font-weight: 700;
-  color: var(--growth-green);
-}
-.metric-chart-canvas-wrap { height: 120px; }
-.metric-chart-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
-.metric-chart-row-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
-
 /* ── STATS ROW ── */
 .stats-row {
   display: flex; gap: 40px; flex-wrap: wrap;
@@ -817,7 +776,6 @@ footer {
   .work-header { flex-direction: column; }
   .work-contrib { text-align: left; }
   .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .metric-chart-row, .metric-chart-row-2 { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .kpi-grid { grid-template-columns: 1fr; }
@@ -1134,30 +1092,6 @@ footer {
       </div>
     </div>
 
-    <!-- 검토 결과 미리보기 -->
-    <div class="work-section">
-      <div class="work-header work-header-dark">
-        <div class="work-meta">
-          <div class="work-type work-type-dark">How it works · 검토 결과 미리보기</div>
-          <div class="work-title work-title-dark">검토 결과 미리보기</div>
-        </div>
-      </div>
-      <div class="sie-card-dark" style="text-align:left;">
-        <p style="font-size:14px; line-height:2; color:var(--body-muted);">
-          <strong style="color:var(--on-dark);">정아글로벌AI혁신펀드, 지금이 기회입니다!</strong><br>
-          AI 시대를 이끄는 글로벌 혁신 기업에 투자하고 <span class="hl-bad">확정적인 고수익</span>을 경험하세요.
-          지난 1년간 압도적 <span class="hl-check">수익률 +42.7%</span>를 기록하며 <span class="hl-bad">업계 1위</span>를 달성했습니다.
-          <span class="hl-bad">손실 걱정 없이 마음 편한</span> 투자, 정아투자증권과 함께하세요.
-        </p>
-        <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
-          <div class="check-item"><span class="check-dot check-dot-bad"></span><div><strong>손실보전/이익보장 오인 표현</strong><br><span class="caption" style="color:var(--body-muted);">"확정적인 고수익", "손실 걱정 없이" — 위반 소지</span></div></div>
-          <div class="check-item"><span class="check-dot check-dot-bad"></span><div><strong>근거 없는 비교광고</strong><br><span class="caption" style="color:var(--body-muted);">"업계 1위" 출처·기준 미표시 — 위반 소지</span></div></div>
-          <div class="check-item"><span class="check-dot check-dot-check"></span><div><strong>운용실적 표시 시 면책 문구</strong><br><span class="caption" style="color:var(--body-muted);">"미래 수익 보장 아님" 문구 확인 필요</span></div></div>
-          <div class="check-item"><span class="check-dot check-dot-ok"></span><div><strong>금융투자업자 명칭 표시</strong><br><span class="caption" style="color:var(--body-muted);">정아투자증권 명시됨 — 준수</span></div></div>
-        </div>
-      </div>
-    </div>
-
     <!-- Tech Stack -->
     <div class="work-section">
       <div class="work-type work-type-dark" style="margin-bottom:16px;">Tech Stack</div>
@@ -1195,13 +1129,6 @@ footer {
         <div class="sie-title sie-title-dark">신뢰 중심 브랜드 보이스 전방위 구축</div>
         <div class="sie-body sie-body-dark">홈페이지 키 메시지 '자산을 늘리는 가장 스마트한 방법'으로 브랜드 포지셔닝. AI 리스크 관리·저축은행 협약 등 핵심 이슈를 PR 기사로 기획해 언론 신뢰도 확보. 브랜드 영상은 '저위험 중수익의 비밀' 등 타겟 공감 메시지로 제작.</div>
       </div>
-    </div>
-
-    <div class="metric-chart-block metric-chart-block-dark">
-      <div class="metric-chart-head">
-        <span class="metric-chart-title metric-chart-title-dark">프로젝트별 기여도</span>
-      </div>
-      <div class="metric-chart-canvas-wrap" style="height:160px;"><canvas id="chart-mm-contrib"></canvas></div>
     </div>
 
     <!-- Brand AD -->
@@ -1549,13 +1476,6 @@ footer {
         </div>
       </div>
       <p class="work-body work-body-dark">코어타겟(2030) 관심사를 반영한 콘텐츠 제작으로 유입 유도. 유명 푸드스타일리스트 레시피 공유, 참여유도 이벤트를 통한 팬수 확보. 팬수 7,230 → 260,000 (약 3,700% 증가)</p>
-      <div class="metric-chart-block metric-chart-block-dark">
-        <div class="metric-chart-head">
-          <span class="metric-chart-title metric-chart-title-dark">Facebook 팬 수 추이</span>
-          <span class="metric-chart-delta">+3,700%</span>
-        </div>
-        <div class="metric-chart-canvas-wrap"><canvas id="chart-nh-fb"></canvas></div>
-      </div>
       <div class="work-tags" style="margin-bottom:16px;">
         <span class="work-tag-dark">업체리딩</span>
         <span class="work-tag-dark">콘텐츠 제작</span>
@@ -1604,13 +1524,6 @@ footer {
         </div>
       </div>
       <p class="work-body work-body-dark">금융전문 정보채널 콘텐츠 제작. 신상품 원페이퍼 광고물 제작. Blog 방문자 8천 → 20만/월 (약 2,400% 증가). Post 주간 방문자 평균 500~1,000건</p>
-      <div class="metric-chart-block metric-chart-block-dark">
-        <div class="metric-chart-head">
-          <span class="metric-chart-title metric-chart-title-dark">Blog 월간 방문자 추이</span>
-          <span class="metric-chart-delta">+2,400%</span>
-        </div>
-        <div class="metric-chart-canvas-wrap"><canvas id="chart-nh-blog"></canvas></div>
-      </div>
       <div class="gallery-grid gallery-2">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-072.jpg" alt="블로그 올바른 포인트 Check" class="gallery-img">
         <img src="https://jacuty.github.io/maketing_portfolio/images/img-075.jpg" alt="블로그 5월 포인트카드" class="gallery-img">
@@ -1631,13 +1544,6 @@ footer {
         </div>
       </div>
       <p class="work-body work-body-dark">매월 주요 프로모션 push 메시지 전송으로 카드 사용 유도. 자동응답 버튼 카드 주요혜택 소개로 카드 발급 유도. 친구 1,000 → 82,450명. 농협카드 전용 쇼핑몰 서버 다운</p>
-      <div class="metric-chart-block metric-chart-block-dark">
-        <div class="metric-chart-head">
-          <span class="metric-chart-title metric-chart-title-dark">Kakao 친구 수 추이</span>
-          <span class="metric-chart-delta">+8,145%</span>
-        </div>
-        <div class="metric-chart-canvas-wrap"><canvas id="chart-nh-kakao"></canvas></div>
-      </div>
       <div class="work-tags" style="margin-bottom:16px;">
         <span class="work-tag-dark">카피라이팅</span>
         <span class="work-tag-dark">혜택 순위선정</span>
@@ -1926,41 +1832,6 @@ function initPerfCharts() {
   makeBeforeAfterChart('chart-kpi-fb', ['Before', 'Now'], [7230, 260000], '#FFEB00', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.55)');
   makeBeforeAfterChart('chart-kpi-blog', ['Before', 'Now'], [8000, 200000], '#FFEB00', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.55)');
   makeBeforeAfterChart('chart-kpi-kakao', ['Before', 'Now'], [1000, 82450], '#FFEB00', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.55)');
-
-  // NH농협 inline charts (dark tile)
-  makeBeforeAfterChart('chart-nh-fb', ['2016', '2018'], [7230, 260000], '#FFEB00', 'rgba(255,255,255,0.08)', 'rgba(255,255,255,0.5)');
-  makeBeforeAfterChart('chart-nh-blog', ['2016', '2018'], [8000, 200000], '#FFEB00', 'rgba(255,255,255,0.08)', 'rgba(255,255,255,0.5)');
-  makeBeforeAfterChart('chart-nh-kakao', ['2016', '2018'], [1000, 82450], '#FFEB00', 'rgba(255,255,255,0.08)', 'rgba(255,255,255,0.5)');
-
-  // MoneyMove 기여도 (horizontal)
-  const mmEl = document.getElementById('chart-mm-contrib');
-  if (mmEl && typeof Chart !== 'undefined') {
-    new Chart(mmEl, {
-      type: 'bar',
-      data: {
-        labels: ['Brand AD', 'Article & PR', 'Brand Page', 'Exhibition'],
-        datasets: [{
-          data: [80, 100, 80, 70],
-          backgroundColor: '#FFEB00',
-          borderRadius: 6,
-          maxBarThickness: 28
-        }]
-      },
-      options: {
-        indexAxis: 'y',
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { callbacks: { label: (ctx) => ctx.parsed.x + '%' } }
-        },
-        scales: {
-          x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: 'rgba(255,255,255,0.5)', callback: (v) => v + '%' } },
-          y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.75)', font: { family: 'Pretendard', size: 13 } } }
-        }
-      }
-    });
-  }
 }
 
 if (document.readyState === 'loading') {
