@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js" crossorigin="anonymous"></script>
 <style>
 /* ── TOKENS ──
    카카오페이 디자인 가이드 반영:
@@ -624,57 +623,6 @@ nav {
 .press-arrow { flex-shrink: 0; font-size: 14px; color: var(--ink-muted-48); }
 .press-arrow-dark { color: var(--body-muted); }
 
-/* ── PERFORMANCE DASHBOARD ── */
-#performance { background: var(--surface-black); color: var(--on-dark); }
-.perf-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 13px; font-weight: 500;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--brand-yellow);
-  margin-bottom: 12px;
-}
-.perf-headline { margin-bottom: 12px; color: var(--on-dark); }
-.perf-sub { color: var(--body-muted); margin-bottom: 48px; }
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
-  text-align: left;
-  margin-bottom: 16px;
-}
-.kpi-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 20px;
-  padding: 24px 22px 18px;
-}
-.kpi-label {
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 0.6px; text-transform: uppercase;
-  color: var(--body-muted);
-  margin-bottom: 10px;
-}
-.kpi-value {
-  font-family: var(--font-mono);
-  font-size: 30px; font-weight: 700;
-  color: var(--on-dark);
-  line-height: 1.1;
-  margin-bottom: 4px;
-  display: flex; align-items: baseline; gap: 8px;
-}
-.kpi-delta {
-  font-family: var(--font-mono);
-  font-size: 14px; font-weight: 700;
-  color: var(--growth-green);
-}
-.kpi-range {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--body-muted);
-  margin-bottom: 14px;
-}
-.kpi-chart-wrap { height: 64px; margin-top: 8px; }
-
 /* ── STATS ROW ── */
 .stats-row {
   display: flex; gap: 40px; flex-wrap: wrap;
@@ -775,10 +723,6 @@ footer {
   .stats-row { gap: 24px; }
   .work-header { flex-direction: column; }
   .work-contrib { text-align: left; }
-  .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 480px) {
-  .kpi-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 419px) {
   .hero-name { font-size: 28px; }
@@ -793,7 +737,6 @@ footer {
   <a href="#hero" class="nav-logo">KIM JUNG A</a>
   <ul class="nav-links">
     <li><a href="#hero">Intro</a></li>
-    <li><a href="#performance">Performance</a></li>
     <li><a href="#career">Career</a></li>
     <li><a href="#addashboard">Ad Dashboard</a></li>
     <li><a href="#moneymove">MoneyMove</a></li>
@@ -808,7 +751,6 @@ footer {
 
 <div class="nav-mobile-menu" id="mobileMenu">
   <a href="#hero" onclick="closeMenu()">Intro</a>
-  <a href="#performance" onclick="closeMenu()">Performance</a>
   <a href="#career" onclick="closeMenu()">Career</a>
   <a href="#addashboard" onclick="closeMenu()">Ad Dashboard</a>
   <a href="#moneymove" onclick="closeMenu()">MoneyMove</a>
@@ -822,7 +764,7 @@ footer {
   <div>
     <p class="hero-eyebrow">Marketing Portfolio</p>
     <h1 class="hero-name">KIM JUNG A</h1>
-    <p class="hero-sub">Brand Content &amp; PR · Digital Performance</p>
+    <p class="hero-sub">Digital Performance · Brand Content &amp; PR</p>
     <div class="hero-cta">
       <a href="#career" class="btn-primary">경력 보기</a>
       <a href="mailto:jacuby@naver.com" class="btn-secondary" style="color:#FFEB00; border-color:rgba(255,235,0,0.5);">Contact</a>
@@ -841,7 +783,7 @@ footer {
 
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-num">8+</div>
         <div class="hero-stat-label">Years Exp.</div>
       </div>
       <div class="hero-stat">
@@ -853,42 +795,6 @@ footer {
         <div class="hero-stat-label">Facebook Growth</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ── PERFORMANCE SNAPSHOT ── -->
-<section id="performance" class="tile" style="padding-top:64px;">
-  <div class="tile-inner">
-    <p class="perf-eyebrow">Performance Snapshot</p>
-    <h2 class="display-md perf-headline">숫자로 증명한 성과</h2>
-    <p class="lead-airy perf-sub">10년간 담당 채널에서 만든 실제 증가 추이</p>
-
-    <div class="kpi-grid">
-      <div class="kpi-card">
-        <div class="kpi-label">Facebook 팬 수 · NH농협카드</div>
-        <div class="kpi-value">260,000<span class="kpi-delta">+3,700%</span></div>
-        <div class="kpi-range">7,230 → 260,000</div>
-        <div class="kpi-chart-wrap"><canvas id="chart-kpi-fb"></canvas></div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Blog 방문자(월) · NH농협카드</div>
-        <div class="kpi-value">200,000<span class="kpi-delta">+2,400%</span></div>
-        <div class="kpi-range">8,000 → 200,000</div>
-        <div class="kpi-chart-wrap"><canvas id="chart-kpi-blog"></canvas></div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Kakao 친구 수 · NH농협카드</div>
-        <div class="kpi-value">82,450<span class="kpi-delta">+8,145%</span></div>
-        <div class="kpi-range">1,000 → 82,450</div>
-        <div class="kpi-chart-wrap"><canvas id="chart-kpi-kakao"></canvas></div>
-      </div>
-      <div class="kpi-card">
-        <div class="kpi-label">Brand AD 누적 조회수 · 하나대체투자</div>
-        <div class="kpi-value">300,000+</div>
-        <div class="kpi-range">정보형·예능형 2트랙 직접 기획</div>
-      </div>
-    </div>
-    <p class="caption" style="color:var(--body-muted); text-align:left;">Instagram 업계 콘텐츠당 좋아요·댓글 수 1위(976건·95건) · 마켓컬리 팔로워 0→구축 · 머니무브 언론 보도 4건+ 게재</p>
   </div>
 </section>
 
@@ -1795,50 +1701,6 @@ document.querySelectorAll('.work-section, .sie-card, .sie-card-dark, .career-car
   observer.observe(el);
 });
 
-// ── PERFORMANCE CHARTS ──
-function makeBeforeAfterChart(id, labels, data, barColor, gridColor, tickColor) {
-  const el = document.getElementById(id);
-  if (!el || typeof Chart === 'undefined') return;
-  new Chart(el, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: data,
-        backgroundColor: [barColor + '55', barColor],
-        borderRadius: 6,
-        maxBarThickness: 56
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: { label: (ctx) => ctx.parsed.y.toLocaleString() }
-        }
-      },
-      scales: {
-        x: { grid: { display: false }, ticks: { color: tickColor, font: { family: 'Roboto Mono', size: 11 } } },
-        y: { display: false, grid: { display: false } }
-      }
-    }
-  });
-}
-
-function initPerfCharts() {
-  // Hero KPI dashboard (dark bg)
-  makeBeforeAfterChart('chart-kpi-fb', ['Before', 'Now'], [7230, 260000], '#FFEB00', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.55)');
-  makeBeforeAfterChart('chart-kpi-blog', ['Before', 'Now'], [8000, 200000], '#FFEB00', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.55)');
-  makeBeforeAfterChart('chart-kpi-kakao', ['Before', 'Now'], [1000, 82450], '#FFEB00', 'rgba(255,255,255,0.1)', 'rgba(255,255,255,0.55)');
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initPerfCharts);
-} else {
-  initPerfCharts();
-}
 </script>
 
 <!-- Ad Dashboard 기능 살펴보기 캐러셀 -->
